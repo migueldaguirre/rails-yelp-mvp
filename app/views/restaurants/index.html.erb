@@ -1,1 +1,26 @@
-<h1>Restaurant index </h1>
+<div class="container">
+
+  <h1>Restaurant index </h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Category</th>
+    </thead>
+    <% @restaurants.each do |restaurant| %>
+    <tr>
+
+      <td><p><%=link_to "#{restaurant.name}", "restaurants/#{restaurant.id}" %></p></td>
+      <td><p><%= restaurant.address %></p></td>
+      <td><p><%= restaurant.phone_number %></p></td>
+      <td><p><%= restaurant.category %></p></td>
+      <td><%=link_to "Edit", "restaurants/#{restaurant.id}/edit" %></td>
+      <td><%=link_to "Delete", "" %></td>
+      <%end%>
+    </tr>
+  </table>
+
+  <%=link_to "Add restaurant", "restaurants/new", class: "btn btn-success" %>
+
+</div>
